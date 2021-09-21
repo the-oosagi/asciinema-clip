@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="asciinema_clip",
-    version="0.1.2",
+    version="0.1.3",
     author="Aria Ghora Prabono",
     author_email="hello@ghora.net",
     description="Clip the displaying delay on asciicast produced by asciinema",
