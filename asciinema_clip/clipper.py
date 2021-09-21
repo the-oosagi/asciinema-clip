@@ -31,8 +31,8 @@ class AsciinemaClipper:
 
         time_diff_cut = []
         for time in time_diff:
-            if (time > cutoff):
-                val = cutoff
+            if (time > self.cutoff):
+                val = self.cutoff
             else:
                 val = time
             time_diff_cut.append(val)
@@ -55,6 +55,6 @@ class AsciinemaClipper:
                     row = ""
                 out_str += row + "\n"
 
-        with open(output_filename, "w") as f:
+        with open(self.output_filename, "w") as f:
             f.write(out_str)
 

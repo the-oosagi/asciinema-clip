@@ -12,6 +12,6 @@ if __name__ == "__main__":
     c = AsciinemaClipper(
         input_filename=input_filename,
         output_filename=output_filename,
-        cutoff=cutoff,
+        cutoff=float(cutoff),
     )
     c.execute()
