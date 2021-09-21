@@ -5,12 +5,11 @@ from itertools import accumulate
 
 class AsciinemaClipper:
     def __init__(
-        self, input_filename: str, output_filename: str, cutoff: float, pause: float
+        self, input_filename: str, output_filename: str, cutoff: float
     ):
         self.input_filename = input_filename
         self.output_filename = output_filename
         self.cutoff = cutoff
-        self.pause = pause
 
     def execute(self):
         with open(self.input_filename) as f:
@@ -32,10 +31,8 @@ class AsciinemaClipper:
 
         time_diff_cut = []
         for time in time_diff:
-            if (time > cutoff) and (time <= pause):
+            if (time > cutoff):
                 val = cutoff
-            elif time > pause:
-                val = pause
             else:
                 val = time
             time_diff_cut.append(val)
@@ -61,19 +58,3 @@ class AsciinemaClipper:
         with open(output_filename, "w") as f:
             f.write(out_str)
 
-
-if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        raise Exception("Specify input and output filename")
-
-    cutoff = 0.05
-    pause = 2.0
-    _, input_filename, output_filename = sys.argv
-
-    c = AsciinemaClipper(
-        input_filename=input_filename,
-        output_filename=output_filename,
-        cutoff=cutoff,
-        pause=pause,
-    )
-    c.execute()
